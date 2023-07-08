@@ -10,5 +10,8 @@ class LoginPageLocators():
 
 class BookLocators():
     BUTTON_ADD_NEW_BOOK = (By.CSS_SELECTOR, "#add_to_basket_form")
-    BOOK_NAME = (By.XPATH, "//div[@class='alertinner ']//strong")
-    BOOK_PRICE = (By.XPATH, "//div[@class='icon-shopping-cart']//i")
+    BOOK_NAME = (By.XPATH, "//ul[@class='breadcrumb']//li[@class='active']")
+    BOOK_ALERT_NAME = (By.XPATH, "//div[@class='alertinner ']//strong")
+    BOOK_PUBLICK_PRICE = (By.XPATH, "//div[@class='col-sm-6 product_main']//p[@class='price_color']")
+    BOOK_BASKET_PRICE = (By.XPATH, "//div[@class='alertinner ']//p//strong")
+
