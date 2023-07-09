@@ -15,3 +15,9 @@ class BookLocators():
     BOOK_PUBLICK_PRICE = (By.XPATH, "//div[@class='col-sm-6 product_main']//p[@class='price_color']")
     BOOK_BASKET_PRICE = (By.XPATH, "//div[@class='alertinner ']//p//strong")
 
+class ProductPageLocators():
+    SUCCESS_MESSAGE = (By.XPATH, "//div[@class='alert alert-safe alert-noicon alert-success  fade in']//div[@class='alertinner ']")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")

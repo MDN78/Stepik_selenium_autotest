@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import BookLocators
+from .locators import BookLocators, ProductPageLocators
 
 class AddNewBook(BasePage):
         def add_new_book_to_basket(self):
@@ -20,3 +20,10 @@ class AddNewBook(BasePage):
             basket_price = second_price.text
             assert book_price == basket_price, "Wrong price!"
 
+        def should_not_be_success_message(self):
+            assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+               "Success message is presented, but should not be"
+
+        def should_be_disappeared_success_message(self):
+            assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+               "Success message is presented, but should not be"
