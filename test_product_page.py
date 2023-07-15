@@ -2,6 +2,7 @@ import pytest
 from pages.product_page import AddNewBook
 from pages.base_page import BasePage
 from pages.login_page import LoginPage
+import time
 
 @pytest.mark.need_review
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"])
@@ -67,9 +68,22 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser, link):
 
 @pytest.mark.login_user
 class TestUserAddToBasketFromProductPage:
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        print("Registration\n")
+        link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
+        email = str(time.time()) + "@fakemail.org"
+        password = "Password1)"
+        page = LoginPage(browser, link)
+        page.open()
+        page.register_new_user(email, password)
+        page.should_be_authorized_user()
+
+
+    @pytest.mark.need_review
     def test_user_cant_see_success_message(self, browser):
         print("Test 8\n")
-        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
         page = AddNewBook(browser, link)
         page.open()
         page.should_not_be_success_message()
