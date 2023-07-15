@@ -80,7 +80,6 @@ class TestUserAddToBasketFromProductPage:
         page.should_be_authorized_user()
 
 
-    @pytest.mark.need_review
     def test_user_cant_see_success_message(self, browser):
         print("Test 8\n")
         link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
@@ -98,3 +97,4 @@ class TestUserAddToBasketFromProductPage:
         book_title = AddNewBook(browser, browser.current_url)
         book_title.is_title_right()
         book_title.is_price_right()
+
